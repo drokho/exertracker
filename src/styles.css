@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+}
+    
+html {
+    background-color: #000;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f0f6db;
+    font-size: 16px;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #000;
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    flex: 1 0 auto;
+}
+
+h1 {
+    background-color: #fff;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container > * {
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav, footer { 
+    background-color: #2f2f2f;
+}
+
+footer {
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 12px;
+}
+
+nav ul {
+    display: inline-block;
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+a {
+    color: #96b700;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #bbb;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.brand {
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+.nav-link {
+    display: inline-block;
+    padding: 5px 20px;
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #000;
+}
+
+thead {
+    background-color: #ccc;
+}
+
+
+th, td {
+    padding: 10px 5px;
+    text-align: center;
+}
+
+td {
+    background-color: #eee;
+}
+
+label {
+    display:  block;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control,
+input {
+    width:  100%;
+    padding:  10px;
+    font-size: 16px;
+    /* background-color: #f0f6db; */
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+select {
+    cursor: pointer;
+}
+
+.form-group.single-line {
+    margin-top: 10px;
+}
+
+.form-group.single-line label {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.form-group.single-line > div {
+    display: inline-block;
+}
+
+.btn {
+    background-color: #96b700;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #777;
+}
+
+.user-list li {
+    /*display: flex;
+    justify-content: space-between; */
+    padding: 10px;
+}
+
+.user-delete {
+    margin-right: 20px;
+}
+.user-name,
+.user-delete {
+    display: inline-block;
+}
+
+@media screen and (max-width: 550px) {
+    nav {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .brand,
+    nav ul,
+    nav ul li {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
