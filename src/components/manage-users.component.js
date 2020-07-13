@@ -42,7 +42,7 @@ export default class ManageUsers extends Component {
     }
 
     getUsers() {
-        axios.get('http://localhost:5000/users/')
+        axios.get('/users/')
             .then(response => {
                 if(response.data.length > 0) {
                     this.setState({
@@ -82,7 +82,7 @@ export default class ManageUsers extends Component {
         }
 
         console.log(newUser);
-        axios.post('http://localhost:5000/users/add', newUser)
+        axios.post('/users/add', newUser)
             .then((res) => {
                 console.log(res.data);
                 this.setState({ userAdded: true});
@@ -93,7 +93,7 @@ export default class ManageUsers extends Component {
     }
 
     deleteUser(id) {
-        axios.delete('http://localhost:5000/users/' + id)
+        axios.delete('/users/' + id)
             .then((res) => {
                 console.log(res.data);
                 this.setState({userDeleted: true});
