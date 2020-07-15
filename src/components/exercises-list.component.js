@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import { config } from '../config.js';
+import { config } from '../config';
 
 import { faPencilAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,10 +40,7 @@ export default class ExercisesList extends Component {
     }
 
     componentDidMount() {
-
-            console.log('url=' + config.url.API_URL)
-
-        axios.get('/exercises')
+        axios.get(config.url.API_URL + '/exercises/')
             .then(response => {
                 this.setState({
                     exercises: response.data
@@ -55,7 +52,7 @@ export default class ExercisesList extends Component {
     }
 
     deleteExercise(id) {
-        axios.delete('/exercises/' + id)
+        axios.delete(config.url.API_URL + '/exercises/' + id)
             .then(res => console.log(res.data));
 
         this.setState({

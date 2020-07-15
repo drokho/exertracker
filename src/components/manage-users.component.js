@@ -3,6 +3,8 @@ import axios from 'axios';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { config } from '../config';
+
 const User = props => {
     return (
         <li>
@@ -42,7 +44,7 @@ export default class ManageUsers extends Component {
     }
 
     getUsers() {
-        axios.get('/users/')
+        axios.get(config.url.API_URL + '/users/')
             .then(response => {
                 if(response.data.length > 0) {
                     this.setState({
@@ -82,7 +84,7 @@ export default class ManageUsers extends Component {
         }
 
         console.log(newUser);
-        axios.post('/users/add', newUser)
+        axios.post(config.url.API_URL + '/users/add', newUser)
             .then((res) => {
                 console.log(res.data);
                 this.setState({ userAdded: true});
@@ -93,7 +95,7 @@ export default class ManageUsers extends Component {
     }
 
     deleteUser(id) {
-        axios.delete('/users/' + id)
+        axios.delete(config.url.API_URL + '/users/' + id)
             .then((res) => {
                 console.log(res.data);
                 this.setState({userDeleted: true});
