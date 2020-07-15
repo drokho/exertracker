@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import { config } from '../config.js';
+
 import { faPencilAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Exercise = props => {
+
+    console.log(props);
+
     return (
         <tr>
             <td>{props.exercise.username}</td>
@@ -35,6 +40,9 @@ export default class ExercisesList extends Component {
     }
 
     componentDidMount() {
+
+            console.log('url=' + config.url.API_URL)
+
         axios.get('/exercises')
             .then(response => {
                 this.setState({
@@ -56,9 +64,11 @@ export default class ExercisesList extends Component {
     }
 
     exerciseList() {
-        return this.state.exercises.map(currentExercise => {
-            return <Exercise exercise={currentExercise} deleteExercise={this.deleteExercise} key={currentExercise._id} />;
-        })
+        if(this.state.exercises.length > 0) {
+            return Array.from(this.state.exercises).map(currentExercise => {
+                return <Exercise exercise={currentExercise} deleteExercise={this.deleteExercise} key={currentExercise._id} />;
+            })
+        }
     }
 
     render() {
