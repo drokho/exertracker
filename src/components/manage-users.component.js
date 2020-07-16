@@ -87,7 +87,11 @@ export default class ManageUsers extends Component {
         axios.post(config.url.API_URL + '/users/add', newUser)
             .then((res) => {
                 console.log(res.data);
-                this.setState({ userAdded: true});
+                this.setState({ 
+                    userAdded: true,
+                    message: newUser.username + ' has been added! Start logging Exercises!'
+                });
+                this.state.username = '';
                 this.getUsers();
             });
 
@@ -136,7 +140,7 @@ export default class ManageUsers extends Component {
                     </form>
                     <div>
                         { this.state.userAdded ? 
-                            <p>{this.state.username} added as a user! Start Logging Exercises!</p> 
+                            <p>{this.state.message}</p> 
                             : <p></p> 
                         } 
                     </div>
